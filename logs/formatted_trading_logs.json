@@ -1,0 +1,157 @@
+[
+    {
+        "scenario": "Authentication Failure (Initial Setup)",
+        "description": "The bot attempted to communicate with Binance, but the API keys provided in the .env were invalid.",
+        "events": [
+            {
+                "step": 1,
+                "note": "System starts and initializes the client",
+                "data": {
+                    "timestamp": "2026-02-20 12:18:32,139",
+                    "level": "INFO",
+                    "event": "client_init",
+                    "module": "client",
+                    "function": "__init__",
+                    "message": "Binance Futures Client initialized."
+                }
+            },
+            {
+                "step": 2,
+                "note": "Bot synchronizes its clock with Binance server time",
+                "data": {
+                    "timestamp": "2026-02-20 12:18:33,401",
+                    "level": "INFO",
+                    "event": "time_sync",
+                    "module": "client",
+                    "function": "_sync_time",
+                    "message": "Time sync: Local-Server diff = -6256ms"
+                }
+            },
+            {
+                "step": 3,
+                "note": "User requested a MARKET BUY of 0.002 BTC",
+                "data": {
+                    "timestamp": "2026-02-20 12:18:33,403",
+                    "level": "INFO",
+                    "event": "log_message",
+                    "module": "orders",
+                    "function": "place_order",
+                    "message": "Initiating order flow: BTCUSDT BUY 0.002 MARKET @ None"
+                }
+            },
+            {
+                "step": 4,
+                "note": "API request sent to Binance",
+                "data": {
+                    "timestamp": "2026-02-20 12:18:34,097",
+                    "level": "INFO",
+                    "event": "order_request",
+                    "module": "client",
+                    "function": "create_order",
+                    "message": "Sending order request"
+                }
+            },
+            {
+                "step": 5,
+                "note": "ERROR: Binance rejected the request (Invalid Keys)",
+                "data": {
+                    "timestamp": "2026-02-20 12:18:34,591",
+                    "level": "ERROR",
+                    "event": "order_error",
+                    "module": "client",
+                    "function": "create_order",
+                    "message": "Binance API Error: APIError(code=-2014): API-key format invalid."
+                }
+            }
+        ]
+    },
+    {
+        "scenario": "Successful MARKET Order",
+        "description": "The API keys were corrected, and a market order was successfully filled.",
+        "events": [
+            {
+                "step": 1,
+                "note": "Fresh initialization with valid credentials",
+                "data": {
+                    "timestamp": "2026-02-20 12:24:34,065",
+                    "level": "INFO",
+                    "event": "client_init",
+                    "module": "client",
+                    "message": "Binance Futures Client initialized."
+                }
+            },
+            {
+                "step": 2,
+                "note": "User requested a MARKET BUY of 0.005 BTC",
+                "data": {
+                    "timestamp": "2026-02-20 12:24:35,428",
+                    "level": "INFO",
+                    "event": "log_message",
+                    "module": "orders",
+                    "message": "Initiating order flow: BTCUSDT BUY 0.005 MARKET @ None"
+                }
+            },
+            {
+                "step": 3,
+                "note": "Order Accepted by Exchange",
+                "data": {
+                    "timestamp": "2026-02-20 12:24:36,767",
+                    "level": "INFO",
+                    "event": "order_success",
+                    "module": "client",
+                    "message": "Order success"
+                }
+            }
+        ]
+    },
+    {
+        "scenario": "Successful LIMIT Order",
+        "description": "A limit sell order was placed at a specific price ($150,000).",
+        "events": [
+            {
+                "step": 1,
+                "note": "Time sync performed before the trade",
+                "data": {
+                    "timestamp": "2026-02-20 12:25:20,828",
+                    "level": "INFO",
+                    "event": "time_sync",
+                    "module": "client",
+                    "message": "Time sync: Local-Server diff = -6329ms"
+                }
+            },
+            {
+                "step": 2,
+                "note": "User requested a LIMIT SELL of 0.005 BTC @ $150,000.0",
+                "data": {
+                    "timestamp": "2026-02-20 12:25:20,830",
+                    "level": "INFO",
+                    "event": "log_message",
+                    "module": "orders",
+                    "message": "Initiating order flow: BTCUSDT SELL 0.005 LIMIT @ 150000.0"
+                }
+            },
+            {
+                "step": 3,
+                "note": "Request sent to Binance",
+                "data": {
+                    "timestamp": "2026-02-20 12:25:21,503",
+                    "level": "INFO",
+                    "event": "order_request",
+                    "module": "client",
+                    "message": "Sending order request"
+                }
+            },
+            {
+                "step": 4,
+                "note": "Order Accepted by Exchange",
+                "data": {
+                    "timestamp": "2026-02-20 12:25:22,387",
+                    "level": "INFO",
+                    "event": "order_success",
+                    "module": "client",
+                    "message": "Order success"
+                }
+            }
+        ]
+    }
+]
