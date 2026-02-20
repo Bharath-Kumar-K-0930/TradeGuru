@@ -1,0 +1,5 @@
+{"timestamp": "2026-02-20 12:24:34,065", "level": "INFO", "event": "client_init", "module": "client", "function": "__init__", "message": "Binance Futures Client initialized."}
+{"timestamp": "2026-02-20 12:24:35,426", "level": "INFO", "event": "time_sync", "module": "client", "function": "_sync_time", "message": "Time sync: Local-Server diff = -6125ms"}
+{"timestamp": "2026-02-20 12:24:35,428", "level": "INFO", "event": "log_message", "module": "orders", "function": "place_order", "message": "Initiating order flow: BTCUSDT BUY 0.005 MARKET @ None"}
+{"timestamp": "2026-02-20 12:24:36,245", "level": "INFO", "event": "order_request", "module": "client", "function": "create_order", "message": "Sending order request"}
+{"timestamp": "2026-02-20 12:24:36,767", "level": "INFO", "event": "order_success", "module": "client", "function": "create_order", "message": "Order success"}

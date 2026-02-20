@@ -5,4 +5,6 @@ __pycache__/
 .vscode/
 logs/*
 !logs/formatted_trading_logs.json
+!logs/market_order.log
+!logs/limit_order.log
 .pytest_cache/
